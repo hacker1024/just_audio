@@ -14,42 +14,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   AudioPlayer _player;
-  ConcatenatingAudioSource _playlist = ConcatenatingAudioSource(children: [
-    LoopingAudioSource(
-      count: 2,
-      child: ClippingAudioSource(
-        start: Duration(seconds: 60),
-        end: Duration(seconds: 65),
-        child: AudioSource.uri(Uri.parse(
-            "https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3")),
-        tag: AudioMetadata(
-          album: "Science Friday",
-          title: "A Salute To Head-Scratching Science (5 seconds)",
-          artwork:
-              "https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg",
-        ),
-      ),
-    ),
-    AudioSource.uri(
-      Uri.parse(
-          "https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3"),
-      tag: AudioMetadata(
-        album: "Science Friday",
-        title: "A Salute To Head-Scratching Science",
-        artwork:
-            "https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg",
-      ),
-    ),
-    AudioSource.uri(
-      Uri.parse("https://s3.amazonaws.com/scifri-segments/scifri201711241.mp3"),
-      tag: AudioMetadata(
-        album: "Science Friday",
-        title: "From Cat Rheology To Operatic Incompetence",
-        artwork:
-            "https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg",
-      ),
-    ),
-  ]);
+  ConcatenatingAudioSource _playlist = ConcatenatingAudioSource(children: []);
 
   @override
   void initState() {
@@ -66,6 +31,43 @@ class _MyAppState extends State<MyApp> {
     await session.configure(AudioSessionConfiguration.speech());
     try {
       await _player.load(_playlist);
+      await _playlist.addAll([
+        LoopingAudioSource(
+          count: 2,
+          child: ClippingAudioSource(
+            start: Duration(seconds: 60),
+            end: Duration(seconds: 65),
+            child: AudioSource.uri(Uri.parse(
+                "https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3")),
+            tag: AudioMetadata(
+              album: "Science Friday",
+              title: "A Salute To Head-Scratching Science (5 seconds)",
+              artwork:
+                  "https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg",
+            ),
+          ),
+        ),
+        AudioSource.uri(
+          Uri.parse(
+              "https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3"),
+          tag: AudioMetadata(
+            album: "Science Friday",
+            title: "A Salute To Head-Scratching Science",
+            artwork:
+                "https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg",
+          ),
+        ),
+        AudioSource.uri(
+          Uri.parse(
+              "https://s3.amazonaws.com/scifri-segments/scifri201711241.mp3"),
+          tag: AudioMetadata(
+            album: "Science Friday",
+            title: "From Cat Rheology To Operatic Incompetence",
+            artwork:
+                "https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg",
+          ),
+        ),
+      ]);
     } catch (e) {
       // catch load errors: 404, invalid url ...
       print("An error occured $e");
