@@ -1,7 +1,6 @@
 #import "UriAudioSource.h"
 #import "IndexedAudioSource.h"
 #import "IndexedPlayerItem.h"
-#import <AVFoundation/AVFoundation.h>
 
 @implementation UriAudioSource {
     NSString *_uri;

@@ -1,5 +1,3 @@
-#import <AVFoundation/AVFoundation.h>
-
 @class IndexedAudioSource;
 
 @interface IndexedPlayerItem : AVPlayerItem

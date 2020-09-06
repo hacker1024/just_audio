@@ -1,5 +1,4 @@
 #import "AudioSource.h"
-#import <AVFoundation/AVFoundation.h>
 
 @implementation AudioSource {
     NSString *_sourceId;

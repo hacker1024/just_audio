@@ -5,7 +5,6 @@
 #import "ConcatenatingAudioSource.h"
 #import "LoopingAudioSource.h"
 #import "ClippingAudioSource.h"
-#import <AVFoundation/AVFoundation.h>
 #import <stdlib.h>
 #include <TargetConditionals.h>
 

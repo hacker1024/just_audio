@@ -2,7 +2,6 @@
 #import "ClippingAudioSource.h"
 #import "IndexedPlayerItem.h"
 #import "UriAudioSource.h"
-#import <AVFoundation/AVFoundation.h>
 
 @implementation ClippingAudioSource {
     UriAudioSource *_audioSource;

@@ -1,6 +1,5 @@
 #import "AudioSource.h"
 #import "LoopingAudioSource.h"
-#import <AVFoundation/AVFoundation.h>
 
 @implementation LoopingAudioSource {
     // An array of duplicates

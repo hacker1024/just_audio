@@ -1,7 +1,6 @@
 #import "AudioSource.h"
 #import "IndexedPlayerItem.h"
 #import <FlutterMacOS/FlutterMacOS.h>
-#import <AVFoundation/AVFoundation.h>
 
 @interface IndexedAudioSource : AudioSource
 
@@ -14,7 +13,7 @@
 - (void)attach:(AVQueuePlayer *)player;
 - (void)play:(AVQueuePlayer *)player;
 - (void)pause:(AVQueuePlayer *)player;
-- (void)stop:(AVQueuePlayer *)player;
+- (void)stop:(VLCKit *)player;
 - (void)seek:(CMTime)position;
 - (void)seek:(CMTime)position completionHandler:(void (^)(BOOL))completionHandler;
 

@@ -1,6 +1,5 @@
 #import "IndexedAudioSource.h"
 #import "IndexedPlayerItem.h"
-#import <AVFoundation/AVFoundation.h>
 
 @implementation IndexedAudioSource {
     BOOL _isAttached;
